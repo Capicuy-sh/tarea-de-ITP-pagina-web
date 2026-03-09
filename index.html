@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Enciclopedia Digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enciclopedia de Química</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,31 +12,31 @@
         <h1>📚 Mi Enciclopedia Digital</h1>
         
         <div class="tarjetas">
-            <div class="card" onclick="abrirArticulo('quimica')">
+            <div class="card" onclick="abrirArticulo()">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Atom_diagram.png/200px-Atom_diagram.png" alt="Átomo">
                 <h2>Química: La Valencia</h2>
-                <p>Haz clic para leer.</p>
-            </div>
-            <div class="card" onclick="abrirArticulo('hidrogeno')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Electron_shell_001_Hydrogen.svg/200px-Electron_shell_001_Hydrogen.svg.png" alt="Hidrógeno">
-                <h2>El Hidrógeno</h2>
-                <p>Propiedades y oxidación.</p>
+                <p>Haz clic para leer el artículo completo.</p>
             </div>
         </div>
 
-        <button class="btn-quiz" onclick="abrirQuiz()">📝 Realizar Quiz (10 preguntas)</button>
+        <button class="btn-quiz" onclick="abrirQuiz()">📝 Realizar Quiz (20 preguntas)</button>
     </div>
 
     <div id="articulo" class="seccion oculto">
         <button class="btn-volver" onclick="volver()">⬅ Volver al inicio</button>
-        <div id="contenido-wiki" class="wiki-style"></div>
+        <div id="contenido-wiki" class="wiki-style">
+            </div>
     </div>
 
     <div id="quiz" class="seccion oculto">
+        <button class="btn-volver" onclick="volver()">⬅ Salir del Quiz</button>
         <div class="quiz-box">
+            <p id="q-progreso" class="progreso-texto"></p>
             <h2 id="q-texto"></h2>
             <div id="q-opciones"></div>
-            <p id="q-progreso"></p>
+            
+            <div id="q-feedback" class="oculto"></div>
+            <button id="btn-siguiente" class="btn-siguiente oculto" onclick="siguientePregunta()">Siguiente Pregunta ➡</button>
         </div>
     </div>
 
