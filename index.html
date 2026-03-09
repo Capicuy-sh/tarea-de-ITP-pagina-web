@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Elementos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Explorador Químico 🔬</h1>
+        <p>Aprende sobre la valencia y los estados de oxidación.</p>
+    </header>
+
+    <main>
+        <section class="contenedor-cartas">
+            <div class="card">
+                <h2>Hidrógeno (H)</h2>
+                <p><strong>Valencia:</strong> 1</p>
+                <p><strong>Estado de Oxidación:</strong> +1, -1</p>
+                <button onclick="saberMas('Hidrógeno')">Saber más</button>
+            </div>
+
+            <div class="card">
+                <h2>Oxígeno (O)</h2>
+                <p><strong>Valencia:</strong> 2</p>
+                <p><strong>Estado de Oxidación:</strong> -2</p>
+                <button onclick="saberMas('Oxígeno')">Saber más</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function saberMas(elemento) {
+            alert("Has seleccionado " + elemento + ". ¡Pronto añadiremos más detalles!");
+        }
+    </script>
+</body>
+</html>
