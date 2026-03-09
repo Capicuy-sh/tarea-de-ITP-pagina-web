@@ -1,75 +1,99 @@
-:root {
-    --primario: #2563eb;
-    --secundario: #64748b;
-    --exito: #22c55e;
-    --error: #ef4444;
+/* 1. Reset y Fuentes */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    background-color: #f0f2f5; 
+    color: #333; 
+    line-height: 1.6; 
+    padding: 20px; 
 }
 
-body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: #f8fafc;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.pantalla {
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    transition: opacity 0.5s ease;
+/* 2. Contenedor General */
+.seccion { 
+    max-width: 800px; 
+    margin: 40px auto; 
+    background: white; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
 }
 
 .oculto { display: none; }
 
-.contenedor-temas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 40px;
+/* 3. Títulos y Botones */
+h1 { color: #1a1a1a; margin-bottom: 20px; text-align: center; }
+button { 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: 0.3s; 
 }
 
-.card-tema {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s;
+/* 4. Tarjetas Principales */
+.tarjetas { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+    margin: 30px 0; 
 }
 
-.card-tema:hover { transform: translateY(-5px); border: 2px solid var(--primario); }
-
-.icono { font-size: 50px; margin-bottom: 10px; }
-
-.btn-principal {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    background: var(--primario);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
+.card { 
+    background: #fff; 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    border-radius: 10px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
-/* Estilos del Quiz */
-.quiz-card { background: white; padding: 40px; border-radius: 25px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-.progreso-bar { background: #e2e8f0; height: 10px; border-radius: 5px; margin-bottom: 20px; }
-#barra { background: var(--primario); width: 0%; height: 100%; border-radius: 5px; transition: 0.3s; }
-.opcion-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    background: none;
-    cursor: pointer;
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
+.card img { width: 80px; margin-bottom: 15px; }
+
+/* 5. Botones de Acción */
+.btn-quiz { 
+    background: #2563eb; 
+    color: white; 
+    width: 100%; 
+    font-size: 1.1rem; 
+    margin-top: 20px; 
 }
-.opcion-btn:hover { background: #f1f5f9; }
+.btn-quiz:hover { background: #1d4ed8; }
+
+/* 6. Estilos tipo Wikipedia */
+.wiki-style { 
+    text-align: left; 
+    border-top: 2px solid #eee; 
+    padding-top: 20px; 
+    margin-top: 20px; 
+}
+
+/* 7. Quiz profesional */
+.opcion-btn { 
+    display: block; 
+    width: 100%; 
+    margin: 10px 0; 
+    padding: 15px; 
+    border: 1px solid #cbd5e1; 
+    background: white; 
+    text-align: left; 
+    font-size: 1rem; 
+    border-radius: 8px; 
+}
+.opcion-btn:hover { background: #f1f5f9; border-color: #2563eb; }
+
+/* 8. Botón Volver */
+.btn-volver { 
+    background: #64748b; 
+    color: white; 
+    margin-bottom: 20px; 
+}
+.btn-volver:hover { background: #475569; }
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    .seccion { padding: 20px; }
+}
