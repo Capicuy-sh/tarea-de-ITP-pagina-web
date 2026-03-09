@@ -2,49 +2,41 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio Educativo</title>
+    <title>Enciclopedia Educativa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section id="vista-inicio" class="pantalla">
-        <header>
-            <h1>Explorador de Ciencias</h1>
-            <p>Selecciona un tema para aprender o ponte a prueba</p>
-        </header>
-        
-        <div class="contenedor-temas">
-            <div class="card-tema" onclick="mostrarInfo('quimica')">
-                <div class="icono">🧪</div>
-                <h2>Química Avanzada</h2>
-                <p>Valencias y estados de oxidación</p>
+    <div id="inicio" class="seccion">
+        <h1>📚 Mi Enciclopedia Digital</h1>
+        <div class="tarjetas">
+            <div class="card" onclick="abrirArticulo('quimica')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Atom_diagram.png/200px-Atom_diagram.png" alt="Átomo">
+                <h2>Química: La Valencia</h2>
+                <p>Haz clic para leer la info de Wikipedia.</p>
             </div>
-            <div class="card-tema" onclick="mostrarInfo('fisica')">
-                <div class="icono">⚡</div>
-                <h2>Física Atómica</h2>
-                <p>Estructura del átomo y energía</p>
+            <div class="card" onclick="abrirArticulo('hidrogeno')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Electron_shell_001_Hydrogen.svg/200px-Electron_shell_001_Hydrogen.svg.png" alt="Hidrógeno">
+                <h2>El Hidrógeno</h2>
+                <p>Propiedades y estados de oxidación.</p>
             </div>
         </div>
+        <button class="btn-quiz" onclick="abrirQuiz()">📝 Realizar Quiz (10 preguntas)</button>
+    </div>
 
-        <button class="btn-principal" onclick="irAlQuiz()">🚀 Ir al Quiz Profesional</button>
-    </section>
+    <div id="articulo" class="seccion oculto">
+        <button onclick="volver()">⬅ Volver al inicio</button>
+        <div id="contenido-wiki" class="wiki-style">
+            </div>
+    </div>
 
-    <section id="vista-info" class="pantalla oculto">
-        <button class="btn-volver" onclick="irAInicio()">⬅ Volver</button>
-        <article id="contenido-detalle">
-            </article>
-    </section>
-
-    <section id="vista-quiz" class="pantalla oculto">
-        <div class="quiz-card">
-            <div class="progreso-bar"><div id="barra"></div></div>
-            <h2 id="quiz-titulo">Desafío de 10 Preguntas</h2>
-            <div id="pregunta-texto" class="pregunta"></div>
-            <div id="opciones-lista"></div>
-            <div id="feedback"></div>
+    <div id="quiz" class="seccion oculto">
+        <div class="quiz-box">
+            <h2 id="q-texto"></h2>
+            <div id="q-opciones"></div>
+            <p id="q-progreso"></p>
         </div>
-    </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
