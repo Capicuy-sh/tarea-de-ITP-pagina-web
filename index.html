@@ -2,32 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Enciclopedia Educativa</title>
+    <title>Mi Enciclopedia Digital</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="inicio" class="seccion">
         <h1>📚 Mi Enciclopedia Digital</h1>
+        
         <div class="tarjetas">
             <div class="card" onclick="abrirArticulo('quimica')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Atom_diagram.png/200px-Atom_diagram.png" alt="Átomo">
                 <h2>Química: La Valencia</h2>
-                <p>Haz clic para leer la info de Wikipedia.</p>
+                <p>Haz clic para leer.</p>
             </div>
             <div class="card" onclick="abrirArticulo('hidrogeno')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Electron_shell_001_Hydrogen.svg/200px-Electron_shell_001_Hydrogen.svg.png" alt="Hidrógeno">
                 <h2>El Hidrógeno</h2>
-                <p>Propiedades y estados de oxidación.</p>
+                <p>Propiedades y oxidación.</p>
             </div>
         </div>
+
         <button class="btn-quiz" onclick="abrirQuiz()">📝 Realizar Quiz (10 preguntas)</button>
     </div>
 
     <div id="articulo" class="seccion oculto">
-        <button onclick="volver()">⬅ Volver al inicio</button>
-        <div id="contenido-wiki" class="wiki-style">
-            </div>
+        <button class="btn-volver" onclick="volver()">⬅ Volver al inicio</button>
+        <div id="contenido-wiki" class="wiki-style"></div>
     </div>
 
     <div id="quiz" class="seccion oculto">
