@@ -1,7 +1,7 @@
-/* RESET PROFESIONAL */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body { 
-    font-family: 'Segoe UI', Roboto, sans-serif; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     background-color: #f4f7f6; 
     color: #333; 
     padding: 20px; 
@@ -9,7 +9,6 @@ body {
     justify-content: center; 
 }
 
-/* ESTRUCTURA DE VENTANAS */
 .seccion { 
     width: 100%; 
     max-width: 800px; 
@@ -17,47 +16,103 @@ body {
     padding: 40px; 
     border-radius: 15px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    margin-top: 20px;
 }
-.oculto { display: none; }
 
-/* GRID DE TARJETAS */
+.oculto { display: none !important; }
+
+h1 { text-align: center; margin-bottom: 30px; color: #2c3e50; }
+
+/* Tarjeta Centrada */
 .tarjetas { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 25px; 
-    margin: 30px 0; 
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 30px; 
 }
+
 .card { 
-    border: 1px solid #e1e4e8; 
-    padding: 25px; 
+    border: 2px solid #e1e4e8; 
+    padding: 30px; 
     border-radius: 12px; 
     text-align: center; 
     cursor: pointer; 
     transition: all 0.3s ease; 
+    max-width: 300px;
 }
-.card:hover { transform: translateY(-8px); border-color: #2563eb; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-.card img { max-width: 120px; height: auto; margin-bottom: 15px; }
 
-/* ELEMENTOS DEL QUIZ Y BOTONES */
+.card:hover { 
+    transform: translateY(-8px); 
+    border-color: #2563eb; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+.card img { max-width: 150px; margin-bottom: 15px; }
+
+/* Botones */
 .btn-quiz { 
     width: 100%; 
     background: #2563eb; 
     color: white; 
-    padding: 18px; 
-    border-radius: 10px; 
+    padding: 15px; 
+    border-radius: 8px; 
     font-size: 1.1rem; 
     font-weight: bold; 
     border: none; 
     cursor: pointer; 
 }
 .btn-quiz:hover { background: #1d4ed8; }
-.btn-volver { background: #64748b; color: white; padding: 10px 20px; border-radius: 5px; margin-bottom: 20px; }
 
-.opcion-btn { 
-    display: block; width: 100%; padding: 15px; margin: 10px 0; 
-    background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; text-align: left; 
+.btn-volver { 
+    background: #64748b; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
+    border: none;
+    cursor: pointer;
 }
-.opcion-btn:hover { background: #e2e8f0; border-color: #64748b; }
 
-/* ESTILO WIKI */
-.wiki-style img { max-width: 100%; height: auto; border-radius: 8px; }
+.btn-siguiente {
+    background: #10b981;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Opciones del Quiz */
+.opcion-btn { 
+    display: block; 
+    width: 100%; 
+    padding: 15px; 
+    margin: 10px 0; 
+    background: #f8fafc; 
+    border: 2px solid #cbd5e1; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    text-align: left; 
+    font-size: 1rem;
+    transition: 0.2s;
+}
+.opcion-btn:hover:not(:disabled) { background: #e2e8f0; border-color: #94a3b8; }
+.opcion-btn:disabled { cursor: not-allowed; opacity: 0.8; }
+
+/* Feedback (Correcto/Incorrecto) */
+#q-feedback { 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-top: 15px; 
+    font-weight: bold; 
+    text-align: center;
+}
+.feedback-correcto { background: #d1fae5; color: #065f46; border: 1px solid #34d399; }
+.feedback-incorrecto { background: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+
+/* Estilo de los 20 párrafos */
+.wiki-style p { margin-bottom: 15px; line-height: 1.7; text-align: justify; }
+.wiki-style h1 { border-bottom: 2px solid #eee; padding-bottom: 10px; text-align: left;}
+.progreso-texto { color: #64748b; font-weight: bold; margin-bottom: 10px; }
