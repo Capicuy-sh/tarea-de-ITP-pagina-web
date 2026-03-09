@@ -1,99 +1,63 @@
-/* 1. Reset y Fuentes */
+/* RESET PROFESIONAL */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-    background-color: #f0f2f5; 
+    font-family: 'Segoe UI', Roboto, sans-serif; 
+    background-color: #f4f7f6; 
     color: #333; 
-    line-height: 1.6; 
     padding: 20px; 
+    display: flex; 
+    justify-content: center; 
 }
 
-/* 2. Contenedor General */
+/* ESTRUCTURA DE VENTANAS */
 .seccion { 
+    width: 100%; 
     max-width: 800px; 
-    margin: 40px auto; 
     background: white; 
     padding: 40px; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+    border-radius: 15px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
 }
-
 .oculto { display: none; }
 
-/* 3. Títulos y Botones */
-h1 { color: #1a1a1a; margin-bottom: 20px; text-align: center; }
-button { 
-    padding: 12px 24px; 
-    border: none; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    font-weight: 600; 
-    transition: 0.3s; 
-}
-
-/* 4. Tarjetas Principales */
+/* GRID DE TARJETAS */
 .tarjetas { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 20px; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
     margin: 30px 0; 
 }
-
 .card { 
-    background: #fff; 
-    border: 1px solid #ddd; 
-    padding: 20px; 
-    border-radius: 10px; 
+    border: 1px solid #e1e4e8; 
+    padding: 25px; 
+    border-radius: 12px; 
     text-align: center; 
     cursor: pointer; 
-    transition: transform 0.2s, box-shadow 0.2s; 
+    transition: all 0.3s ease; 
 }
+.card:hover { transform: translateY(-8px); border-color: #2563eb; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.card img { max-width: 120px; height: auto; margin-bottom: 15px; }
 
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
-.card img { width: 80px; margin-bottom: 15px; }
-
-/* 5. Botones de Acción */
+/* ELEMENTOS DEL QUIZ Y BOTONES */
 .btn-quiz { 
+    width: 100%; 
     background: #2563eb; 
     color: white; 
-    width: 100%; 
+    padding: 18px; 
+    border-radius: 10px; 
     font-size: 1.1rem; 
-    margin-top: 20px; 
+    font-weight: bold; 
+    border: none; 
+    cursor: pointer; 
 }
 .btn-quiz:hover { background: #1d4ed8; }
+.btn-volver { background: #64748b; color: white; padding: 10px 20px; border-radius: 5px; margin-bottom: 20px; }
 
-/* 6. Estilos tipo Wikipedia */
-.wiki-style { 
-    text-align: left; 
-    border-top: 2px solid #eee; 
-    padding-top: 20px; 
-    margin-top: 20px; 
-}
-
-/* 7. Quiz profesional */
 .opcion-btn { 
-    display: block; 
-    width: 100%; 
-    margin: 10px 0; 
-    padding: 15px; 
-    border: 1px solid #cbd5e1; 
-    background: white; 
-    text-align: left; 
-    font-size: 1rem; 
-    border-radius: 8px; 
+    display: block; width: 100%; padding: 15px; margin: 10px 0; 
+    background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; text-align: left; 
 }
-.opcion-btn:hover { background: #f1f5f9; border-color: #2563eb; }
+.opcion-btn:hover { background: #e2e8f0; border-color: #64748b; }
 
-/* 8. Botón Volver */
-.btn-volver { 
-    background: #64748b; 
-    color: white; 
-    margin-bottom: 20px; 
-}
-.btn-volver:hover { background: #475569; }
-
-/* Ajuste móvil */
-@media (max-width: 600px) {
-    body { padding: 10px; }
-    .seccion { padding: 20px; }
-}
+/* ESTILO WIKI */
+.wiki-style img { max-width: 100%; height: auto; border-radius: 8px; }
