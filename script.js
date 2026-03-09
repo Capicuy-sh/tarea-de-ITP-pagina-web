@@ -1,74 +1,72 @@
-// Datos del Quiz (10 preguntas)
-const bancoPreguntas = [
-    { p: "¿Cuál es el símbolo del Hidrógeno?", o: ["H", "He", "Hi"], c: 0 },
-    { p: "Valencia del Oxígeno:", o: ["1", "2", "3"], c: 1 },
-    { p: "Carga del Protón:", o: ["Negativa", "Neutra", "Positiva"], c: 2 },
-    { p: "¿Qué gas es vital para respirar?", o: ["Nitrógeno", "Oxígeno", "Argón"], c: 1 },
-    { p: "El centro del átomo es el:", o: ["Núcleo", "Electrón", "Vacío"], c: 0 },
-    { p: "Estado de oxidación del Sodio (Na):", o: ["-1", "+1", "+2"], c: 1 },
-    { p: "Partícula con carga negativa:", o: ["Neutrón", "Protón", "Electrón"], c: 2 },
-    { p: "¿El Helio es un gas noble?", o: ["Sí", "No", "A veces"], c: 0 },
-    { p: "Símbolo del Oro:", o: ["Or", "Au", "Ag"], c: 1 },
-    { p: "¿Cuántos electrones tiene el Hidrógeno?", o: ["0", "1", "2"], c: 1 }
+const infoWikipedia = {
+    quimica: `
+        <h1>Valencia (química)</h1>
+        <p>La <b>valencia</b> es el número de electrones que tiene un elemento en su último nivel de energía. Estos electrones son los responsables de la formación de enlaces químicos.</p>
+        <p>Desde el punto de vista histórico, la valencia se definía como el número de átomos de hidrógeno que pueden combinarse con un átomo del elemento en cuestión.</p>
+        
+    `,
+    hidrogeno: `
+        <h1>Hidrógeno</h1>
+        <p>El <b>hidrógeno</b> es el elemento químico de número atómico <b>1</b>. Es el elemento más ligero de la tabla periódica y el más abundante en el universo.</p>
+        <p>En condiciones normales es un gas incoloro, inodoro e insípido. Su estado de oxidación común es +1, aunque puede actuar como -1 en los hidruros metálicos.</p>
+        
+
+[Image of hydrogen atom structure]
+
+    `
+};
+
+// --- LÓGICA DE NAVEGACIÓN ---
+function abrirArticulo(tema) {
+    document.getElementById('inicio').classList.add('oculto');
+    document.getElementById('articulo').classList.remove('oculto');
+    document.getElementById('contenido-wiki').innerHTML = infoWikipedia[tema];
+}
+
+function volver() {
+    document.querySelectorAll('.seccion').forEach(s => s.classList.add('oculto'));
+    document.getElementById('inicio').classList.remove('oculto');
+}
+
+// --- LÓGICA DEL QUIZ (10 PREGUNTAS) ---
+const preguntas = [
+    { p: "¿Símbolo del Hidrógeno?", o: ["H", "O", "N"], c: 0 },
+    { p: "¿Carga del Electrón?", o: ["Positiva", "Negativa", "Neutra"], c: 1 },
+    { p: "¿Valencia del Oxígeno?", o: ["1", "2", "3"], c: 1 },
+    { p: "¿Dónde están los protones?", o: ["Núcleo", "Nube", "Fuera"], c: 0 },
+    { p: "¿Elemento más ligero?", o: ["Helio", "Litio", "Hidrógeno"], c: 2 },
+    { p: "¿Símbolo del Oro?", o: ["Ag", "Au", "Fe"], c: 1 },
+    { p: "¿El Helio es metal?", o: ["Sí", "No"], c: 1 },
+    { p: "¿Carga del Neutrón?", o: ["+", "-", "Cero"], c: 2 },
+    { p: "¿Símbolo de la Plata?", o: ["Pl", "Ag", "Pt"], c: 1 },
+    { p: "¿Número atómico del H?", o: ["1", "2", "3"], c: 0 }
 ];
 
-let indiceActual = 0;
-let puntaje = 0;
-
-// Navegación
-function irAInicio() {
-    document.querySelectorAll('.pantalla').forEach(p => p.classList.add('oculto'));
-    document.getElementById('vista-inicio').classList.remove('oculto');
+let actual = 0;
+function abrirQuiz() {
+    document.getElementById('inicio').classList.add('oculto');
+    document.getElementById('quiz').classList.remove('oculto');
+    mostrarPregunta();
 }
 
-function mostrarInfo(tema) {
-    document.getElementById('vista-inicio').classList.add('oculto');
-    const info = document.getElementById('vista-info');
-    info.classList.remove('oculto');
-    
-    const contenido = document.getElementById('contenido-detalle');
-    if(tema === 'quimica') {
-        contenido.innerHTML = `<h1>Tabla Periódica</h1><p>Aprende sobre valencias...</p><img src="https://via.placeholder.com/400x200" alt="Quimica">`;
-    } else {
-        contenido.innerHTML = `<h1>Átomos</h1><p>La base de la materia...</p><img src="https://via.placeholder.com/400x200" alt="Fisica">`;
-    }
-}
-
-function irAlQuiz() {
-    document.getElementById('vista-inicio').classList.add('oculto');
-    document.getElementById('vista-quiz').classList.remove('oculto');
-    cargarPregunta();
-}
-
-function cargarPregunta() {
-    if (indiceActual >= bancoPreguntas.length) {
-        finalizarQuiz();
+function mostrarPregunta() {
+    if(actual >= preguntas.length) {
+        document.getElementById('quiz').innerHTML = "<h2>¡Quiz terminado! 🎉</h2><button onclick='location.reload()'>Volver al inicio</button>";
         return;
     }
-
-    const data = bancoPreguntas[indiceActual];
-    document.getElementById('pregunta-texto').innerText = data.p;
-    document.getElementById('barra').style.width = `${(indiceActual / 10) * 100}%`;
-    
-    let html = "";
-    data.o.forEach((opt, i) => {
-        html += `<button class="opcion-btn" onclick="verificarRespuesta(${i})">${opt}</button>`;
+    let q = preguntas[actual];
+    document.getElementById('q-texto').innerText = q.p;
+    document.getElementById('q-progreso').innerText = `Pregunta ${actual + 1} de 10`;
+    let btnHtml = "";
+    q.o.forEach((opt, i) => {
+        btnHtml += `<button class="opcion-btn" onclick="check(${i})">${opt}</button>`;
     });
-    document.getElementById('opciones-lista').innerHTML = html;
+    document.getElementById('q-opciones').innerHTML = btnHtml;
 }
 
-function verificarRespuesta(idx) {
-    if(idx === bancoPreguntas[indiceActual].c) puntaje++;
-    indiceActual++;
-    cargarPregunta();
-}
-
-function finalizarQuiz() {
-    document.getElementById('vista-quiz').innerHTML = `
-        <div class="quiz-card">
-            <h2>¡Completado!</h2>
-            <p>Tu puntaje: ${puntaje} / 10</p>
-            <button class="btn-principal" onclick="location.reload()">Reiniciar Todo</button>
-        </div>
-    `;
+function check(i) {
+    if(i === preguntas[actual].c) alert("¡Correcto!");
+    else alert("Incorrecto ❌");
+    actual++;
+    mostrarPregunta();
 }
