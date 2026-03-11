@@ -24,11 +24,7 @@ body {
 h1 { text-align: center; margin-bottom: 30px; color: #2c3e50; }
 
 /* Tarjeta Centrada */
-.tarjetas { 
-    display: flex; 
-    justify-content: center; 
-    margin-bottom: 30px; 
-}
+.tarjetas { display: flex; justify-content: center; margin-bottom: 30px; }
 
 .card { 
     border: 2px solid #e1e4e8; 
@@ -37,7 +33,7 @@ h1 { text-align: center; margin-bottom: 30px; color: #2c3e50; }
     text-align: center; 
     cursor: pointer; 
     transition: all 0.3s ease; 
-    max-width: 300px;
+    max-width: 320px;
 }
 
 .card:hover { 
@@ -50,69 +46,54 @@ h1 { text-align: center; margin-bottom: 30px; color: #2c3e50; }
 
 /* Botones */
 .btn-quiz { 
-    width: 100%; 
-    background: #2563eb; 
-    color: white; 
-    padding: 15px; 
-    border-radius: 8px; 
-    font-size: 1.1rem; 
-    font-weight: bold; 
-    border: none; 
-    cursor: pointer; 
+    width: 100%; background: #2563eb; color: white; padding: 15px; 
+    border-radius: 8px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; 
 }
 .btn-quiz:hover { background: #1d4ed8; }
 
+.btn-fuentes {
+    width: 100%; background: #0ea5e9; color: white; padding: 15px; 
+    border-radius: 8px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer;
+    margin-top: 15px;
+}
+.btn-fuentes:hover { background: #0284c7; }
+
 .btn-volver { 
-    background: #64748b; 
-    color: white; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    margin-bottom: 20px; 
-    border: none;
-    cursor: pointer;
+    background: #64748b; color: white; padding: 10px 20px; 
+    border-radius: 5px; margin-bottom: 20px; border: none; cursor: pointer;
 }
 
 .btn-siguiente {
-    background: #10b981;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 15px;
-    width: 100%;
+    background: #10b981; color: white; padding: 12px 20px; border: none;
+    border-radius: 8px; font-size: 1rem; cursor: pointer; margin-top: 15px; width: 100%;
 }
 
-/* Opciones del Quiz */
+/* Quiz */
 .opcion-btn { 
-    display: block; 
-    width: 100%; 
-    padding: 15px; 
-    margin: 10px 0; 
-    background: #f8fafc; 
-    border: 2px solid #cbd5e1; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    text-align: left; 
-    font-size: 1rem;
-    transition: 0.2s;
+    display: block; width: 100%; padding: 15px; margin: 10px 0; 
+    background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 8px; 
+    cursor: pointer; text-align: left; font-size: 1rem; transition: 0.2s;
 }
 .opcion-btn:hover:not(:disabled) { background: #e2e8f0; border-color: #94a3b8; }
-.opcion-btn:disabled { cursor: not-allowed; opacity: 0.8; }
 
-/* Feedback (Correcto/Incorrecto) */
-#q-feedback { 
-    padding: 15px; 
-    border-radius: 8px; 
-    margin-top: 15px; 
-    font-weight: bold; 
-    text-align: center;
-}
+#q-feedback { padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: bold; text-align: center; }
 .feedback-correcto { background: #d1fae5; color: #065f46; border: 1px solid #34d399; }
 .feedback-incorrecto { background: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
 
-/* Estilo de los 20 párrafos */
+/* Contenido Estilo Wiki */
 .wiki-style p { margin-bottom: 15px; line-height: 1.7; text-align: justify; }
 .wiki-style h1 { border-bottom: 2px solid #eee; padding-bottom: 10px; text-align: left;}
 .progreso-texto { color: #64748b; font-weight: bold; margin-bottom: 10px; }
+
+/* Créditos Finales */
+.creditos {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #e1e4e8;
+    color: #4b5563;
+}
+
+.lista-fuentes { list-style: none; padding: 0; margin-top: 20px; line-height: 2; }
+.lista-fuentes a { color: #2563eb; text-decoration: none; font-weight: bold; }
+.lista-fuentes a:hover { text-decoration: underline; }
