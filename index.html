@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enciclopedia de Química</title>
+    <title>Enciclopedia de Química - Sophia Lugo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,17 +15,21 @@
             <div class="card" onclick="abrirArticulo()">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Atom_diagram.png/200px-Atom_diagram.png" alt="Átomo">
                 <h2>Química: La Valencia</h2>
-                <p>Haz clic para leer el artículo completo.</p>
+                <p>Haz clic para leer el artículo completo sobre valencias y estados de oxidación.</p>
             </div>
         </div>
 
         <button class="btn-quiz" onclick="abrirQuiz()">📝 Realizar Quiz (20 preguntas)</button>
+        <button class="btn-fuentes" onclick="abrirFuentes()">📚 Ver Fuentes Bibliográficas</button>
+
+        <div class="creditos">
+            <p>Elaborado por: <strong>Sophia Lugo | 3ro C</strong></p>
+        </div>
     </div>
 
     <div id="articulo" class="seccion oculto">
         <button class="btn-volver" onclick="volver()">⬅ Volver al inicio</button>
-        <div id="contenido-wiki" class="wiki-style">
-            </div>
+        <div id="contenido-wiki" class="wiki-style"></div>
     </div>
 
     <div id="quiz" class="seccion oculto">
@@ -38,6 +42,20 @@
             <div id="q-feedback" class="oculto"></div>
             <button id="btn-siguiente" class="btn-siguiente oculto" onclick="siguientePregunta()">Siguiente Pregunta ➡</button>
         </div>
+    </div>
+
+    <div id="fuentes" class="seccion oculto">
+        <button class="btn-volver" onclick="volver()">⬅ Volver al inicio</button>
+        <h1 style="text-align: left; border-bottom: 2px solid #eee; padding-bottom: 10px;">📚 Fuentes Bibliográficas</h1>
+        <p>Toda la información e imágenes de esta enciclopedia de Química fueron recopiladas de los siguientes artículos de Wikipedia:</p>
+        <ul class="lista-fuentes">
+            <li><a href="https://es.wikipedia.org/wiki/%C3%81tomo" target="_blank">Wikipedia: Átomo (Conceptos básicos)</a></li>
+            <li><a href="https://es.wikipedia.org/wiki/Valencia_(qu%C3%ADmica)" target="_blank">Wikipedia: Valencia y electrones</a></li>
+            <li><a href="https://es.wikipedia.org/wiki/Regla_del_octeto" target="_blank">Wikipedia: Estabilidad y Regla del Octeto</a></li>
+            <li><a href="https://es.wikipedia.org/wiki/Estado_de_oxidaci%C3%B3n" target="_blank">Wikipedia: Estado de oxidación y reglas</a></li>
+        </ul>
+        <br>
+        <p><em>Imágenes obtenidas de Wikimedia Commons bajo licencia Creative Commons.</em></p>
     </div>
 
     <script src="script.js"></script>
